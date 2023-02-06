@@ -1,6 +1,8 @@
 #![no_std]
 #![no_main]
 
+extern crate alloc;
+
 use embedded_hal::digital::v2::OutputPin;
 use panic_halt as _;
 use seeeduino_xiao_rp2040::entry;
@@ -13,7 +15,7 @@ use embedded_alloc::Heap;
 static HEAP: Heap = Heap::empty();
 
 pub mod models;
-// mod utils;
+mod utils;
 
 #[entry]
 fn main() -> ! {

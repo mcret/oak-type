@@ -1,38 +1,32 @@
-use alloc::collections::BTreeMap;
+use alloc::collections::btree_map::BTreeMap;
 use alloc::string::String;
 use alloc::vec::Vec;
+use core::slice::Iter;
 use crate::models::has_state::HasState;
 use crate::models::inputs;
-use crate::utils;
+use crate::models::inputs::state;
+use crate::utils::Grouping;
 
 struct Matrix
 {
     id: String,
-    positive_pins: Vec<u8>,
-    read_pins: Vec<u8>,
-    elements: Vec<MatrixElement>,
+    elements: BTreeMap<u8, Vec<MatrixElement>>,
 }
+
+impl<T> Grouping for Iter<'_,T> {}
 
 impl Matrix
 {
-    fn gather(&self) -> BTreeMap<u8, Vec<MatrixElement>>
+    fn gather(&self) -> BTreeMap<u8, Vec<&MatrixElement>>
     {
-        self.elements
-            .iter()
-            .group_from()
+        let mut foo: Vec<MatrixElement> = Vec::new();
+        foo.iter().group_from(|element| element.location.0)
     }
 }
 
 impl HasState for Matrix {
-    fn read_state(&self) -> inputs::State {
-        let states : Vec<inputs::State> = Vec::new();
-        for positive_pin in &self.positive_pins {
-            //todo: bring pin high
-            for read_pin in &self.read_pins {
-                &self.elements.get
-            }
-            //todo: bring pin low
-        }
+    fn read_state(&self) -> state::State {
+        todo!()
     }
 }
 
@@ -43,7 +37,7 @@ struct MatrixElement
 }
 
 impl HasState for MatrixElement {
-    fn read_state(&self) -> inputs::State {
+    fn read_state(&self) -> state::State {
         todo!()
     }
 }
