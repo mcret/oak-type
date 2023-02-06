@@ -13,14 +13,12 @@ struct Matrix
     elements: BTreeMap<u8, Vec<MatrixElement>>,
 }
 
-impl<T> Grouping for Iter<'_,T> {}
-
 impl Matrix
 {
-    fn gather(&self) -> BTreeMap<u8, Vec<&MatrixElement>>
+    fn gather(&self) -> BTreeMap<u8, Vec<MatrixElement>>
     {
         let mut foo: Vec<MatrixElement> = Vec::new();
-        foo.iter().group_from(|element| element.location.0)
+        foo.group_from(|element| element.location.0)
     }
 }
 

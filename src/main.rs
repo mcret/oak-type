@@ -15,7 +15,6 @@ use embedded_alloc::Heap;
 static HEAP: Heap = Heap::empty();
 
 pub mod models;
-mod utils;
 
 #[entry]
 fn main() -> ! {
