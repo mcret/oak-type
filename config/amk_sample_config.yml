@@ -1,0 +1,48 @@
+config:
+  inputs:
+    # validate pins are only used once
+    binary:
+      - id: "Q"
+        pin: 1
+      - id: "W"
+        pin: 2
+    analog:
+      - id: "foo"
+        pin: 3
+    matrix: #validate matrix size is appropriate
+      - id: "bar"
+        pins:
+          positive: [ 11, 12, 13, 14 ] #rows
+          ground: [ 21, 22, 23, 24 ] #columns
+        binary:
+          - id: "a"
+            location: [ 11, 21 ]
+          - id: "s"
+            location: [ 11, 22 ]
+      #potential subsequent matrices
+    multiplex: #validate control pin count is appropriate
+      - id: "baz"
+        pins:
+          control: [ 31, 32, 33, 34 ]
+          read: 30
+        analog:
+          - id: "z"
+            index: 0
+          - id: "x"
+            index: 1
+          - id: "c"
+            index: bx0011
+      - id: "bark"
+        pins:
+          control: [ 41, 42 ]
+          read: 40
+        analog:
+          - id: "y"
+            index: 0
+          - id: "u"
+            index: 1
+          - id: "i"
+            index: 2
+          - id: "o"
+            index: 3
+  layers:
