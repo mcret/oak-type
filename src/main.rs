@@ -19,6 +19,14 @@ pub mod models;
 #[entry]
 fn main() -> ! {
     loop {
-
+        load_config();
+        loop {
+            update_state();
+            perform_behaviors();
+            if config_updates()
+            {
+                break;
+            }
+        }
     }
 }
