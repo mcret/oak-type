@@ -26,7 +26,23 @@ fn main() -> ! {
             if config_updates()
             {
                 break;
-            }
+            } else {}
         }
     }
+}
+
+fn config_updates() -> bool {
+    todo!()
+}
+
+fn perform_behaviors() {
+    todo!()
+}
+
+fn update_state() {
+    todo!()
+}
+
+fn load_config() {
+    todo!()
 }
