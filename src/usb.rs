@@ -26,9 +26,9 @@ async fn main(_spawner: Spawner) {
 
     // Create embassy-usb Config
     let mut config = Config::new(0xc0de, 0xcafe);
-    config.manufacturer = Some("Embassy");
-    config.product = Some("HID keyboard example");
-    config.serial_number = Some("12345678");
+    config.manufacturer = Some("Oak Type");
+    config.product = Some("Oak Board mk0");
+    config.serial_number = Some("202300000");
     config.max_power = 100;
     config.max_packet_size_0 = 64;
     config.supports_remote_wakeup = true;
@@ -97,20 +97,6 @@ async fn main(_spawner: Spawner) {
             if SUSPENDED.load(Ordering::Acquire) {
                 info!("Triggering remote wakeup");
                 remote_wakeup.signal(());
-            } else {
-                // let report = KeyboardReport {
-                //     keycodes: [4, 0, 0, 0, 0, 0],
-                //     leds: 0,
-                //     modifier: 0,
-                //     reserved: 0,
-                // };
-                // match writer.write_serialize(&report).await {
-                //     Ok(()) => {}
-                //     Err(e) =>
-                //         {
-                //             warn!("Failed to send report: {:?}", e)
-                //         },
-                // };
             }
             let report = KeyboardReport {
                 keycodes: [4, 0, 0, 0, 0, 0],
