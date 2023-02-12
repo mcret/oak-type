@@ -2,10 +2,10 @@ use alloc::collections::btree_map::BTreeMap;
 use alloc::string::String;
 use alloc::vec::Vec;
 use core::slice::Iter;
-use crate::models::has_state::HasState;
-use crate::models::inputs;
-use crate::models::inputs::state;
-use crate::models::inputs::state::State;
+use crate::inputs::status::Status;
+use crate::inputs;
+use crate::inputs::state;
+use crate::inputs::state::Status;
 
 struct Matrix
 {
@@ -13,13 +13,13 @@ struct Matrix
     elements: BTreeMap<u8, Vec<MatrixElement>>,
 }
 
-impl HasState for Matrix {
-    fn read_state(&self) -> state::State {
+impl Status for Matrix {
+    fn get_status(&self) -> state::Status {
         let mut results = Vec::new();
         for x in self.elements.iter() {
             todo!()
         }
-        State::Many(results)
+        Status::Many(results)
     }
 }
 
