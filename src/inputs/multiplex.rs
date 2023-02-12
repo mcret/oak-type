@@ -1,7 +1,6 @@
 use alloc::string::String;
 use alloc::vec::Vec;
-use crate::inputs::status::Status;
-use crate::inputs::state::Status;
+use crate::inputs::status::{HasStatus, Status};
 
 struct Multiplex
 {
@@ -11,7 +10,7 @@ struct Multiplex
 
 }
 
-impl Status for Multiplex {
+impl HasStatus for Multiplex {
     fn get_status(&self) -> Status {
         todo!()
 

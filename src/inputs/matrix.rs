@@ -2,10 +2,7 @@ use alloc::collections::btree_map::BTreeMap;
 use alloc::string::String;
 use alloc::vec::Vec;
 use core::slice::Iter;
-use crate::inputs::status::Status;
-use crate::inputs;
-use crate::inputs::state;
-use crate::inputs::state::Status;
+use crate::inputs::status::{HasStatus, Status};
 
 struct Matrix
 {
@@ -13,8 +10,8 @@ struct Matrix
     elements: BTreeMap<u8, Vec<MatrixElement>>,
 }
 
-impl Status for Matrix {
-    fn get_status(&self) -> state::Status {
+impl HasStatus for Matrix {
+    fn get_status(&self) -> Status {
         let mut results = Vec::new();
         for x in self.elements.iter() {
             todo!()

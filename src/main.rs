@@ -10,7 +10,6 @@ use {defmt_rtt as _, panic_probe as _};
 #[global_allocator]
 static HEAP: Heap = Heap::empty();
 
-pub mod models;
 mod usb;
 pub mod inputs;
 pub mod outputs;

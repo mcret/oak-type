@@ -1,5 +1,4 @@
-use crate::inputs::status::Status;
-use crate::inputs::state::Status;
+use crate::inputs::status::{HasStatus, Status};
 
 struct Analog
 {
@@ -7,7 +6,7 @@ struct Analog
     pin: u32,
 }
 
-impl Status for Analog
+impl HasStatus for Analog
 {
     fn get_status(&self) -> Status {
         todo!()
