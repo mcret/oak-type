@@ -1,22 +1,19 @@
 #![no_std]
-#![no_main]
+#![no_main]#![feature(type_alias_impl_trait)]
 
 extern crate alloc;
 
 use embedded_hal::digital::v2::OutputPin;
-use panic_halt as _;
-use seeeduino_xiao_rp2040::entry;
-use seeeduino_xiao_rp2040::hal;
-use seeeduino_xiao_rp2040::hal::pac;
-use seeeduino_xiao_rp2040::hal::prelude::*;
 use embedded_alloc::Heap;
+use {defmt_rtt as _, panic_probe as _};
 
 #[global_allocator]
 static HEAP: Heap = Heap::empty();
 
 pub mod models;
+mod usb;
 
-#[entry]
+// #[entry]
 fn main() -> ! {
     loop {
         load_config();
