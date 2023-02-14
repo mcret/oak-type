@@ -1,14 +1,10 @@
-use crate::inputs::status::{HasStatus, Status};
+use alloc::string::String;
+use crate::inputs::InputConfig;
 
-struct Binary
+pub struct BinaryConfig
 {
-    id: u16,
-    pin: u32,
+    pub id: String,
+    pub pin: u16,
 }
 
-impl HasStatus for Binary
-{
-    fn get_status(&self) -> Status {
-        todo!()
-    }
-}
+impl InputConfig<bool> for BinaryConfig {}

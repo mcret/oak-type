@@ -1,14 +1,10 @@
-use crate::inputs::status::{HasStatus, Status};
+use alloc::string::String;
+use crate::inputs::InputConfig;
 
 struct Analog
 {
-    id: u16,
-    pin: u32,
+    id: String,
+    pin: u16,
 }
 
-impl HasStatus for Analog
-{
-    fn get_status(&self) -> Status {
-        todo!()
-    }
-}
+impl InputConfig<u16> for Analog {}
