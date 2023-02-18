@@ -8,3 +8,5 @@
 extern crate alloc;
 
 pub mod inputs;
+pub mod behaviors;
+pub mod mapper;
