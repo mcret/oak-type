@@ -1,5 +1,6 @@
 #![no_std]
-#![no_main]#![feature(type_alias_impl_trait)]
+#![no_main]
+#![feature(type_alias_impl_trait)]
 
 extern crate alloc;
 

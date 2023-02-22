@@ -1,5 +1,17 @@
-use crate::behaviors::outputs::OutputConfig;
+use crate::behaviors::{Behavior, BehaviorConfig};
 
-struct HID(u8);
+struct HID
+{
+    behavior: fn() -> (),
+}
 
-impl OutputConfig<u8> for HID {}
+impl Behavior for HID
+{
+    fn execute(&self) -> () {
+        (self.behavior)()
+    }
+}
+
+struct HidConfig(u8);
+
+impl BehaviorConfig<HID> for HidConfig {}

@@ -1,0 +1,17 @@
+inputs:
+  analogs:
+    - id: foo
+      pin: 0
+    - id: bar
+      pin: 1
+layers:
+  - id: baz
+    maps:
+      - input: foo
+        threshold: 100
+        behavior:
+          hid: 4
+      - input: bar
+        threshold: 100
+        behavior:
+          hid: 5
