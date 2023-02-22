@@ -9,7 +9,7 @@ use alloc::vec::Vec;
 use crate::inputs::Input;
 use crate::mappers::Interpreter;
 
-struct Layer<'a>
+pub struct Layer<'a>
 {
     inputs: Vec<&'a dyn Input>,
     //todo make this return an Option
@@ -18,7 +18,7 @@ struct Layer<'a>
 
 impl Layer<'_>
 {
-    fn execute_loop(&self)
+    pub fn execute_loop(&self)
     {
         for input in &self.inputs
         {
